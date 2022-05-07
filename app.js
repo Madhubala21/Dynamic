@@ -19,7 +19,7 @@ connection
   .then(() => {
     console.log("");
     console.log(`Database Authenticated`);
-    connection.sync({ force: false });
+    // connection.sync({ force: false });
     console.log("");
   })
 
