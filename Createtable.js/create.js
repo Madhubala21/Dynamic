@@ -15,7 +15,6 @@ const userRegister = async (columns, rows) => {
       [columns[i]]: { type: DataTypes.STRING(222), allowNull: false },
     });
   }
-  // console.log(col);
 
   var d = col.reduce((r, c) => Object.assign(r, c), {});
   // console.log(d);
