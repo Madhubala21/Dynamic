@@ -33,15 +33,16 @@ const userRegister = async (columns, rows) => {
   // connection.sync({ force: true });
   let j = 0;
   let t;
-  for (let i = 0; i < rows[i].length; i++) {
-    for (t = 1; t <= columns.length; t++) {
-      data.push({ [columns[j]]: rows[t][i] });
+  for (let i = 1; i < rows.length; i++) {
+    for (t = 0; t < columns.length; t++) {
+      data.push({ [columns[t]]: rows[i][t] });
     }
-    j++;
+    var master = data.reduce((r, c) => Object.assign(r, c), {});
+    final.push(master);
+    console.log("data values", final);
   }
-
-  console.log("data values", data);
-  dynamicTable.bulkCreate(data);
+  console.log(data);
+  dynamicTable.bulkCreate(final);
   // var data = columns.map((v) => {
   //   console.log(v);
   //   return {
